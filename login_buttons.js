@@ -88,8 +88,12 @@
         if (!user)
             return '';
 
-        if (user.profile && user.profile.name)
+        if (user.profile && user.profile.name) {
+          if(user.profile.name.first && user.profile.name.last)
+            return user.profile.name.first + " " + user.profile.name.last;
+          else
             return user.profile.name;
+        }
         if (user.username)
             return user.username;
         if (user.emails && user.emails[0] && user.emails[0].address)
